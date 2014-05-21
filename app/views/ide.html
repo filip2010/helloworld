@@ -1,0 +1,76 @@
+<div  style='background-color: #F8F8F8'>
+<link rel=stylesheet href="../doc/docs.css">
+ 
+<link rel="stylesheet" href="libs/codemirror/theme/3024-day.css">
+<link rel="stylesheet" href="libs/codemirror/theme/3024-night.css">
+<link rel="stylesheet" href="libs/codemirror/theme/night.css">
+ 
+<script src="libs/codemirror/mode/javascript/javascript.js"></script>
+<script src="libs/codemirror/keymap/extra.js"></script>
+<script src="libs/codemirror/addon/selection/active-line.js"></script>
+<script src="libs/codemirror/addon/edit/matchbrackets.js"></script> 
+<script src="libs/codemirror/addon/display/fullscreen.js"></script>
+
+
+
+<style type="text/css">
+      .CodeMirror {
+        border: 1px solid black; 
+        font-size:13px;height:100%;
+        overflow: hidden;
+
+      }
+
+ul.dynatree-container
+{
+  font-family: tahoma, arial, helvetica;
+  font-size: 10pt; /* font size should not be too big */
+  white-space: nowrap;
+  padding: 3px;
+  margin: 0; /* issue 201 */
+  background-color: #F8F8F8 !important;
+  overflow: auto;
+  border:none !important;
+  height: 100%; /* issue 263 */
+}
+
+.pane-center,.pane-west,.pane-east {
+  /* show off the inner-layout inside the outer-center-pane*/
+ /* background-color: #F9F9F9;*/
+  padding-top: 15px; /* for outer layout */
+  overflow: hidden;
+}
+
+.menu 
+{
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 10px;
+}
+ </style>
+  
+ 
+  <div ng-transclude style='height:850px;width:100%;border:1px' idelayout>
+ <!-- <div id="north">
+  </div>-->
+    
+ 
+  <div  id="center" >
+
+      <div class="ui-layout-ignore">
+          <editor></editor>
+      </div>
+  </div>
+     <div id="west"  >
+      <div class="ui-layout-content">
+          
+     		<tree></tree>
+      </div>
+     </div>
+     <div id="east" ng-controller="eastController"><div ng-repeat="s in screens"><button>{{s.name}}</button></div>
+
+    </div>
+    <div id="south"  style=' height:100%;background-color: #F8F8F8'>Console</div>
+
+  </div>
+</div>
+

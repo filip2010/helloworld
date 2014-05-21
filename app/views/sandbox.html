@@ -1,0 +1,77 @@
+<div>
+<div>
+<style>
+ .console
+ {
+  height:400px;
+  border: 1px solid green;
+ }
+
+ul.ui-dynatree-container
+{
+        font-family: tahoma, arial, helvetica;
+        font-size: 10pt; /* font size should not be too big */
+        white-space: nowrap; /* better to set it by default, imho */
+        padding: 3px;
+        background-color: white; 
+        border: none!important;
+}
+
+.widget{
+background: #f5f5f5 no-repeat bottom right;
+background-position: 92% 100%;
+background-size: 110px;
+border: 1px solid #ccc;
+border-radius: 5px;
+color: #707070;
+padding: 15px;
+}
+.menu{
+  background-color: #F8F8F8;
+  border: 1px solid;
+}
+.debugWindow
+{
+	border : 1px solid;
+	background-color: #F8F8F8
+}
+</style>
+ 
+
+ 
+</div>
+<div class="row menu">
+  <button class=".btn .btn-small" ng-click="debug.onCollapse()">{{debug.collapseWindow}}</button>
+</div>
+<div class="debugWindow" collapse="debug.collapse">
+ Angular <button ng-click="createProject(1)">CreateProject</button>
+ Node <button ng-click="createProject(2)">CreateProject</button>
+ {{$id}}
+ <div>
+    <div ng-repeat= "p in userProjects.projectNames">
+      {{p}}-{{$id}}-{{$parent.$id}}
+      <button ng-click="$parent.test()">Test</button>
+      <button ng-click="$parent.openProject(p)">Open Project</button>
+    </div>
+</div>
+ <div>
+    fileName : {{fileInfo.title}}
+    filePath : {{fileInfo.path}}
+    all : {{JSON.stringify(fileInfo)}}
+  </div>
+ <p>Active Project</p><strong>{{project.projectName}}</strong>
+ <p>{{project.creationDate}}</p>
+  <div class="row widget col-md-2">
+  <strong>File Name</strong> <input type="text" ng-model="fileName">
+     <button ng-click="createNewFile(fileName)">Create File</button>
+ </div>
+</div>
+ 
+ <div class= "row">
+ 	  <tree   model="model" class="col-md-4"></tree>
+     <editor   class="col-md-8"><editor>
+</div>
+<div class="row col-md-12 console">Console</div>
+ <button ng-click = "clear()">Clear</button>
+  
+</div>

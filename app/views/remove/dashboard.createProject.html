@@ -1,0 +1,41 @@
+<div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <style>
+     .wizard
+     {
+        display:flex;
+        border:1px solid black;
+        position:absolute;
+        width:100%;
+        height:100%;
+     }
+    </style>
+    
+    <h1 class="text-center">Create a New Project</h1>
+    <div  >
+    <div class="text-center">
+      <ul class="pagination">
+        <li ui-sref-active="active"><a ui-sref="dashboard.createProject.settings">Settings</a></li>
+        <li ui-sref-active="active"><a ui-sref="dashboard.createProject.template">Template</a></li>
+        <li ui-sref-active="active"><a ui-sref="dashboard.createProject.repository">Repository</a></li>
+        <li ui-sref-active="active"><a ui-sref="dashboard.createProject.deployment">Deployment</a></li>
+        <li ui-sref-active="active"><a ui-sref="dashboard.createProject.logging">Logging</a></li>
+      </ul>
+    </div>
+
+    <div  class="row" ui-view></div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 well">
+                <h4 class="text-center"><b>Summary</b></h4>
+                <h5><b>Project Name: </b>{{project.name}}</h5> 
+                <h5><b>Template Name: </b>{{project.templateName}}</h5> 
+            </div>
+        </div>
+    </div>
+   </div> <!--wizrd-->
+
+<div>

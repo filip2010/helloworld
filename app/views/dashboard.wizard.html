@@ -1,0 +1,254 @@
+<style>
+ .project
+        {
+            float : left;
+            display: inline-block;
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+             
+            margin-right: 30px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            padding: 20px 15px 0;
+            position: relative;
+            background-color: #F7F7F7;
+
+        }
+.test
+{
+margin-right: 30px;
+}
+</style>
+<style>
+  .step{
+    position: relative;
+    width:80%;
+    height:80%;
+
+  }
+  .settings
+  {
+    float:left;
+    width:400px;
+    height:400px;
+    background-color:#F8F8F8;
+    margin-left : 20px;
+    border :1px solid black;
+    padding-top:10px;
+
+  }
+  .wizard{
+    float:left;
+    margin : 0;
+    border:1px solid black;
+    width:50%;
+    overflow: scroll;
+    position:relative;
+
+  }
+   
+   .template, .selected
+        {
+            float : left;
+            display: inline-block;
+            text-align: center;
+          
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+             
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            padding: 10px;
+            position: relative;
+            background-color: #fdfdfd;
+        }
+
+        .selected
+        {
+            border: 4px solid black;
+          box-shadow: 3px 3px 3px #ccc;
+        }
+        .haserror
+        {
+          border-color:red;
+          border : 2px solid;
+
+        }
+
+      .template:hover
+      {
+       
+        background: C7DCE9;
+        box-shadow: 5px 5px 5px #ccc;
+        opacity:0.4;
+      }
+</style>
+
+        <!-- Basic Styles -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+        <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">
+
+        <!-- SmartAdmin RTL Support is under construction
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.css"> -->
+
+        <!-- We recommend you use "your_style.css" to override SmartAdmin
+             specific styles this will also ensure you retrain your customization with each SmartAdmin update.
+        <link rel="stylesheet" type="text/css" media="screen" href="css/your_style.css"> -->
+
+        <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+        <link rel="stylesheet" type="text/css" media="screen" href="css/demo.css">
+
+        <!-- FAVICONS -->
+        <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+        <!-- GOOGLE FONT -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+<div class="container-fluid"  ng-if="showWizard">
+    <div class="row">
+
+</div>
+    <div class="row">
+        <article class="col-sm-12 col-md-12 col-lg-6">
+                
+                            <!-- Widget ID (each widget will need unique ID)-->
+                            <div class="jarviswidget jarviswidget-color-darken" id="wid-id-0" data-widget-editbutton="false" data-widget-deletebutton="false">
+                                <!-- widget options:
+                                usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+                
+                                data-widget-colorbutton="false"
+                                data-widget-editbutton="false"
+                                data-widget-togglebutton="false"
+                                data-widget-deletebutton="false"
+                                data-widget-fullscreenbutton="false"
+                                data-widget-custombutton="false"
+                                data-widget-collapsed="true"
+                                data-widget-sortable="false"
+                
+                                -->
+                                <header>
+                                    <span class="widget-icon"> <i class="fa fa-check"></i> </span>
+                                    <h2>App creation wizard </h2>
+                
+                                </header>
+                
+                                <!-- widget div-->
+                                <div>
+                
+                                    <!-- widget edit box -->
+                                    <div class="jarviswidget-editbox">
+                                        <!-- This area used as dropdown edit box -->
+                
+                                    </div>
+                                    <!-- end widget edit box -->
+                
+                                    <!-- widget content -->
+                                    <div class="widget-body">
+                
+                                        <div class="row">
+                                            <form id="wizard-1" novalidate="novalidate">
+                                                <div id="bootstrap-wizard-1" class="col-sm-12">
+                                                    <div class="form-bootstrapWizard">
+                                                        <ul class="bootstrapWizard form-wizard">
+                                                            <li class="active" data-target="#step1">
+                                                                <a href="#tab1" data-toggle="tab"> <span class="step">1</span> <span class="title">Technology Stack</span> </a>
+                                                            </li>
+                                                            <li data-target="#step2">
+                                                                <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Source Control</span> </a>
+                                                            </li>
+                                                            <li data-target="#step3">
+                                                                <a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Deployment</span> </a>
+                                                            </li>
+                                                            <li data-target="#step4">
+                                                                <a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Project</span> </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                  
+                                                    <div class="tab-content">
+                                                           <br>
+                                                           <br>
+                                                           <br>
+                                                           <div class="row"><strong>Project Name </strong><input ng-model="project.projectName" type="text" value ="Enter project name"> </div>
+                                                        <div class="tab-pane active" id="tab1">
+                                                            <br>
+
+                                                    <h3><strong>Step 1 </strong> - Technology Stack </h3>
+                                                                     
+                                                        <section class=" row step" ng-controller="techStepCtrl">
+                                                             <div class="template"  ng-repeat="t in templates" ng-click="$parent.update(t)" ng-class='t.selected' > {{t.title}} <img ng-src="{{t.icon}}"></div>
+                                                                                                                  
+                                                        </section>
+                                                     </div>    
+                                                        <div class="tab-pane" id="tab2">
+                                                            <br>
+                                                            <h3><strong>Step 2</strong> - Billing Information</h3>
+                
+                                                               
+                                                    </div>
+                                                         
+                                                        <div class="tab-pane" id="tab3">
+                                                            <br>
+                                                            <h3><strong>Step 3</strong> - Domain Setup</h3>
+                                                            <div class="alert alert-info fade in">
+                                                                <button class="close" data-dismiss="alert">
+                                                                    ×
+                                                                </button>
+                                                                <i class="fa-fw fa fa-info"></i>
+                                                                <strong>Info!</strong> Place an info message box if you wish.
+                                                            </div>
+                                                                <div class="actions">
+                                                <button type="button" class="btn btn-sm btn-primary btn-prev">
+                                                    <i class="fa fa-arrow-left"></i>Prev
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-success btn-next" data-last="Finish">
+                                                    Next<i class="fa fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="tab4">
+                                                            <br>
+                                                            <h3><strong>Step 4</strong> - Project Tracking</h3>
+                                                                <div class="actions">
+                                                <button type="button" class="btn btn-sm btn-primary btn-prev">
+                                                    <i class="fa fa-arrow-left"></i>Prev
+                                                </button>
+                                                <button type="button" class="btn btn-sm btn-success btn-next" data-last="Finish">
+                                                    Next<i class="fa fa-arrow-right"></i>
+                                                </button>
+                                            </div>
+                                                        </div>
+                
+                                                      
+                
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                
+                                    </div>
+                                    <!-- end widget content -->
+                
+                                </div>
+                                <!-- end widget div -->
+                
+                            </div>
+                            <!-- end widget -->
+                
+                        </article>
+   </div>
+ <button class="btn btn-large" ng-click="closeWizard()">Finish</button>
+    
+
+</div>

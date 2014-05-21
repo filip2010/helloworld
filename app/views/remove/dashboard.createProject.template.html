@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <style>
+       .wizard
+       {
+        display:flex;
+       }
+       .template
+        {
+            float : left;
+            display: inline-block;
+            text-align: center;
+            width: 250px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            vertical-align: top;
+            margin: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #ccc;
+            border-radius: 7px;
+            padding: 20px 15px 0;
+            position: relative;
+            background-color: #fdfdfd;
+        }
+    
+
+  </style>
+    <div class="  row">
+        <div class="col-md-9">
+            <div class="row">
+                <div class="template col-md-2 text-center" ng-repeat="template in templates">
+                    <h4>{{template.name}} <input type="radio" name="templateNameOption" value="{{template.name}}" ng-model="project.templateName"></h4>
+                    <center>
+                        <a ui-sref="dashboard.createProject.template.name({templateName:template.name})" ng-mouseover="information.text=template.name"><img src={{template.icon}} class="img-responsive"></a>
+                    </center>
+                </div>    
+            </div>
+        </div>
+        <div class="settings" class="col-md-3 well">
+            <div class="row">
+                <div class="col-md-12">
+                    {{information.text}}
+                </div>       
+            </div>       
+        </div>
+    </div>
+</div>
+
+
+<div class="text-center">
+    <a ui-sref="dashboard.createProject.settings"><button class="btn btn-default">Back</button></a>
+    <a ui-sref="dashboard.createProject.repository"><button class="btn btn-default">Next</button></a>
+</div>
