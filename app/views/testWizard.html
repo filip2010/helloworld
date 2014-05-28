@@ -1,0 +1,169 @@
+<div  style="padding:20px" ng-if="showWizard">
+ 
+<style>
+  .step{
+    position: relative;
+    width:80%;
+    height:80%;
+
+  }
+  .settings
+  {
+    float:left;
+    width:400px;
+    height:400px;
+    background-color:#F8F8F8;
+    margin-left : 20px;
+    border :1px solid black;
+    padding-top:10px;
+
+  }
+  .item
+  {
+    margin : 5px;
+    position:relative;
+  }
+  .wizard{
+    float:left;
+  	margin : 0;
+  	border:1px solid black;
+  	width:50%;
+
+  	position:relative;
+
+  }
+   .group
+   {
+            position: relative;
+            border: 1 solid #b3b3b3;
+            box-shadow:  3px 3px 3px 0;
+            
+            
+           
+   }
+   .template, .selected
+        {
+            position : relative;
+            display: inline-block;
+            text-align: center;
+            width: 150px;
+            height: 100%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+             
+            margin-right: 10px;
+            margin-top:10px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            padding: 20px 15px 0;
+            position: relative;
+            background-color: #fdfdfd;
+        }
+
+        .selected
+        {
+        	border: 4px solid black;
+          box-shadow: 3px 3px 3px #ccc;
+        }
+        .haserror
+        {
+          border-color:red;
+          border : 2px solid;
+
+        }
+
+      section a :hover
+      {
+       
+        background: C7DCE9;
+        box-shadow: 5px 5px 5px #ccc;
+        opacity:0.4;
+        border:4px solid green;
+
+      }
+</style>
+<div></div>
+<div></div>
+<div style = "padding: 10px" class="row"> 
+ <h3>   Project Name : <h4>
+  <input type="text"  ng-class="projectNameCss" ng-model="project.projectName"> 
+
+</div>
+ <div class='wizard' id="wizard"  >
+    <!-- <h2>General</h2>
+     <section><div id='general'></div></section>-->
+    <h2>Technology Stack</h2>
+    <section ><div id='tech'></div></section>
+    <h2>Application Lifecycle </h2>
+     <section><div id='repo'></div></section>
+     <h2>Team </h2>
+     <section><div id='deployment'></div></section>
+</div> 
+
+<div class="settings">
+  <p>Project Name     :    {{project.projectName}}</p>
+  <p>Technology Stack : {{project.template}}</p>
+  <p>Source Code Repository : {{project.repo}}</p>
+   <p>Deployment Provider: {{project.deployment}}</p>
+</div>
+
+ 
+ <script type="text/ng-template" id='general.html'>
+     <section class="step" ng-controller="generalStepCtrl">
+        Project Name : <input type="text" ng-model="project.projectName">
+     </section>    
+</script>
+<script type="text/ng-template" id='tech.html'>
+     <section class="step" ng-controller="techStepCtrl">
+         <div class="template"  ng-repeat="t in templates" ng-click="$parent.update(t)" ng-class='t.selected' > {{t.title}} <img width="67px" height="67px" ng-src="{{t.icon}}"></div>
+        
+     </section>    
+</script>
+<script type="text/ng-template" id='deployment.html'>
+   
+     
+      <section class="step" ng-controller="deploymentStepCtrl">
+          
+         <div class="template" ng-init="a=0"   ng-repeat="t in env"   ng-click="update(t)">{{t.title}}<img  ng-click="update(t)" ng-src="{{t.icon}}"></div>
+     </section>  
+</script>
+
+<script type="text/ng-template" id='repo.html'>
+       
+     <section class="step" ng-controller="repoStepCtrl">
+      <div class="template">
+        <a class="btn  item btn-small row col-md-12" ng-init="a=0"   ng-repeat="t in env"   ng-click="update(t)">
+             <div class= "row"><strong>{{t.title}}</strong></div>
+            <img  width="67px" height="67px" ng-click="update(t)" ng-src="{{t.icon}}"> 
+        </a>
+      
+     </div>
+
+      <div class="template">
+        <a class="btn  item btn-small row col-md-12" ng-init="a=0"   ng-repeat="t in repo"   ng-click="update(t)">
+            <div class= "row"><strong>{{t.title}}</strong></div>
+            <img  width="67px" height="67px" ng-click="update(t)" ng-src="{{t.icon}}"> 
+        </a>
+      
+     </div>
+       <div class="template">
+        <a class="btn  item btn-small row col-md-12" ng-init="a=0"   ng-repeat="t in trackingTools"   ng-click="update(t)">
+            <div class= "row"><strong>{{t.title}}</strong></div>
+            <img width="67px" height="67px" ng-click="update(t)" ng-src="{{t.icon}}"> 
+        </a>
+
+     </div>
+
+         <div class="template">
+        <a class="btn  item btn-small row col-md-12" ng-init="a=0"   ng-repeat="t in monitoring"   ng-click="update(t)">
+            <div class= "row"><strong>{{t.title}}</strong></div>
+            <img width="67px" height="67px" ng-click="update(t)" ng-src="{{t.icon}}"> 
+        </a>
+
+     </div>
+   
+     </section>
+</script>
+</div>
+</div>

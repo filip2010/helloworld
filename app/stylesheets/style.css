@@ -1,0 +1,414 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 8, ../sass/style.scss */
+.glyphicon-align-justify:before {
+  color: #fff;
+}
+
+/* line 12, ../sass/style.scss */
+.container {
+  min-width: 970px;
+  margin: 0 !important;
+  width: 100% !important;
+  padding: 0;
+}
+
+/* line 18, ../sass/style.scss */
+.wrapper {
+  padding: 15px;
+}
+
+/* line 22, ../sass/style.scss */
+button, input {
+  border: none;
+}
+
+/* line 25, ../sass/style.scss */
+button:hover {
+  opacity: 0.7;
+}
+
+/* line 28, ../sass/style.scss */
+input:focus {
+  outline: none;
+}
+
+/* line 31, ../sass/style.scss */
+h2 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+/* line 36, ../sass/style.scss */
+header {
+  height: 55px;
+  width: 100%;
+  padding: 10px;
+  background-color: #2c2c2c;
+}
+/* line 42, ../sass/style.scss */
+header .logoIcon {
+  float: left;
+  width: 58px;
+  height: 36px;
+  margin-right: 10px;
+  background: url(../img/logoIcon.png) no-repeat center;
+}
+/* line 49, ../sass/style.scss */
+header .dropdown {
+  float: left;
+  width: 20px;
+}
+/* line 53, ../sass/style.scss */
+header .toggleIcon {
+  float: left;
+  width: 17px;
+  height: 35px;
+  background: url(../img/toggleIcon.png) no-repeat center;
+}
+/* line 59, ../sass/style.scss */
+header .userPic {
+  float: right;
+  width: 90px;
+  height: 64px;
+  margin-top: -10px;
+  border: none;
+  background: url(../img/userPic.png) no-repeat center;
+}
+/* line 67, ../sass/style.scss */
+header button.addNewProjectBtn {
+  float: right;
+  width: 173px;
+  height: 36px;
+  padding-left: 14px;
+  margin-right: 75px;
+  border: none;
+  background: url(../img/addNewProjectBtn.png) no-repeat center;
+}
+/* line 76, ../sass/style.scss */
+header .iconsBar {
+  float: right;
+  width: 238px;
+  padding: 10px 15px 20px 0;
+}
+/* line 81, ../sass/style.scss */
+header .iconsBar .settings {
+  float: left;
+  width: 19px;
+  height: 19px;
+  margin-right: 20px;
+  border: none;
+  background: url(../img/settingsIcon.png) no-repeat center;
+}
+/* line 89, ../sass/style.scss */
+header .iconsBar .errors {
+  float: left;
+  width: 30px;
+  height: 19px;
+  margin-right: 20px;
+  border: none;
+  background: url(../img/errorsIcon.png) no-repeat center;
+}
+/* line 97, ../sass/style.scss */
+header .iconsBar .music {
+  float: left;
+  width: 34px;
+  height: 19px;
+  margin-right: 20px;
+  border: none;
+  background: url(../img/musicIcon.png) no-repeat center;
+}
+/* line 105, ../sass/style.scss */
+header .iconsBar p {
+  color: #fff;
+}
+
+/* line 112, ../sass/style.scss */
+article.page1 {
+  float: left;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  color: #d8d8d8;
+}
+/* line 120, ../sass/style.scss */
+article.page1 .project {
+  float: left;
+  position: relative;
+  width: 276px;
+  height: 180px;
+  margin-bottom: 65px;
+  background: url(../img/project.png) no-repeat center;
+}
+/* line 128, ../sass/style.scss */
+article.page1 .project h2 {
+  float: left;
+  margin-top: 30px;
+  margin-left: 30px;
+  /*position: relative;
+  top: 32px;
+  left: 30px;*/
+}
+/* line 136, ../sass/style.scss */
+article.page1 .project .whiteBar {
+  float: left;
+  width: 94%;
+  height: 67px;
+  margin-right: 0;
+  margin-left: 9px;
+  background-color: #fff;
+}
+/* line 144, ../sass/style.scss */
+article.page1 .project .whiteBar > ul {
+  padding: 5px;
+}
+/* line 146, ../sass/style.scss */
+article.page1 .project .whiteBar > ul > li {
+  float: left;
+  padding-right: 0px;
+  padding-left: 2px;
+}
+/* line 152, ../sass/style.scss */
+article.page1 .project .whiteBar > ul .leftArrow {
+  width: 10px;
+  height: 16px;
+  margin-top: 20px;
+  background: url(../img/leftArrow.png) no-repeat center;
+}
+/* line 158, ../sass/style.scss */
+article.page1 .project .whiteBar > ul .greenTimeBtn {
+  width: 72px;
+  height: 57px;
+  border: none;
+  background: url(../img/greenStatus.png) no-repeat center;
+}
+/* line 164, ../sass/style.scss */
+article.page1 .project .whiteBar > ul .errorRedBtn {
+  width: 72px;
+  height: 57px;
+  border: none;
+  background: url(../img/RedStatus.png) no-repeat center;
+}
+/* line 170, ../sass/style.scss */
+article.page1 .project .whiteBar > ul .warningYellowBtn {
+  width: 72px;
+  height: 57px;
+  border: none;
+  background: url(../img/OrangeStatus.png) no-repeat center;
+}
+/* line 176, ../sass/style.scss */
+article.page1 .project .whiteBar > ul .rightArrow {
+  width: 10px;
+  height: 16px;
+  margin-top: 20px;
+  background: url(../img/rightArrow.png) no-repeat center;
+}
+/* line 187, ../sass/style.scss */
+article.page1 .project .projectIcons {
+  padding-top: 2px;
+}
+/* line 190, ../sass/style.scss */
+article.page1 .project .projectIcons > li {
+  float: left;
+  margin-top: 10px;
+}
+/* line 194, ../sass/style.scss */
+article.page1 .project .projectIcons li:first-child {
+  margin-left: 35px;
+}
+/* line 197, ../sass/style.scss */
+article.page1 .project .projectIcons .leafIcon {
+  width: 17px;
+  height: 19px;
+  background: url(../img/leafIcon.png) no-repeat center;
+}
+/* line 202, ../sass/style.scss */
+article.page1 .project .projectIcons .clockIcon {
+  width: 19px;
+  height: 20px;
+  background: url(../img/clockIcon.png) no-repeat center;
+}
+article.page1 .project .projectIcons .refreshIcon {
+  width: 19px;
+  height: 20px;
+  background: url(../img/refresh_2.png) no-repeat center;
+}
+
+article.page1 .project .projectIcons .deleteIcon {
+  width: 19px;
+  height: 20px;
+  background: url(../img/delete.png) no-repeat center;
+}
+article.page1 .project .projectIcons .extendIcon {
+  width: 19px;
+  height: 20px;
+  background: url(../img/extend.png) no-repeat center;
+}
+/* line 207, ../sass/style.scss */
+article.page1 .project .projectIcons .settingsIcon {
+  width: 19px;
+  height: 19px;
+  background: url(../img/settingsIcon.png) no-repeat center;
+}
+/* line 212, ../sass/style.scss */
+article.page1 .project .projectIcons .toggleIcon {
+  width: 17px;
+  height: 18px;
+  background: url(../img/toggleIcon.png) no-repeat center;
+}
+/* line 217, ../sass/style.scss */
+article.page1 .project .projectIcons .countIcon {
+  width: 26px;
+  height: 26px;
+  background: url(../img/countIcon.png) no-repeat center;
+}
+/* line 222, ../sass/style.scss */
+article.page1 .project .projectIcons .countLi {
+  margin-top: 6px;
+}
+/* line 225, ../sass/style.scss */
+article.page1 .project .projectIcons .userPic {
+  width: 52px;
+  height: 44px;
+  background: url(../img/userPic2.png) no-repeat center;
+}
+/* line 230, ../sass/style.scss */
+article.page1 .project .projectIcons li:last-child {
+  margin-top: 0;
+}
+/* line 235, ../sass/style.scss */
+article.page1 .extendedProject {
+  clear: both;
+  position: relative;
+  width: 556px;
+  height: 460px;
+  background: url(../img/extendedProject.png) no-repeat center;
+}
+/* line 242, ../sass/style.scss */
+article.page1 .extendedProject p {
+  margin-top: 150px;
+  color: #000000;
+  text-align: center;
+}
+ .whiteBar >  p {
+  margin-top: 10px;
+ 
+}
+/* line 247, ../sass/style.scss */
+article.page1 .extendedProject .whiteBar {
+  width: 97%;
+  height: 345px;
+}
+
+/* line 255, ../sass/style.scss */
+.loginPage {
+  float: left;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  background: #f2f2f2 url(../img/loginBg.png) no-repeat center;
+  background-size: contain;
+}
+/* line 264, ../sass/style.scss */
+.loginPage .loginBox {
+  position: absolute;
+  width: 588px;
+  height: 433px;
+  margin: auto;
+  padding: 30px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: url(../img/loginBox.png) no-repeat center;
+}
+/* line 273, ../sass/style.scss */
+.loginPage .loginBox > * {
+  float: right;
+}
+/* line 277, ../sass/style.scss */
+.loginPage .loginBox .loginBoxHeader {
+  width: 511px;
+  height: 72px;
+  margin-top: 9px;
+  margin-bottom: 40px;
+  background: url(../img/loginBoxHeader.png) no-repeat center;
+}
+/* line 285, ../sass/style.scss */
+.loginPage .loginBox input[type=text], .loginPage .loginBox input[type=password] {
+  float: none;
+  display: block;
+  width: 368px;
+  height: 60px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding-left: 30px;
+  color: #858585;
+  font-size: 28px;
+  font-style: italic;
+  background: url(../img/inputBg.png) no-repeat center;
+}
+/* line 299, ../sass/style.scss */
+.loginPage .loginBox .loginBtn {
+  clear: both;
+  width: 149px;
+  height: 49px;
+  margin-top: 10px;
+  background: url(../img/loginBtn.png) no-repeat center;
+}
+/* line 305, ../sass/style.scss */
+.loginPage .loginBox .loginBtn:focus {
+  outline: none;
+}
+/* line 308, ../sass/style.scss */
+.loginPage .loginBox .loginBtn:hover {
+  opacity: 0.7;
+}
+
+/* line 315, ../sass/style.scss */
+article.projectDashboard {
+  float: left;
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  color: #d8d8d8;
+}
+/* line 323, ../sass/style.scss */
+article.page2 nav {
+  width: 100%;
+  height: 59px;
+  padding: 3px;
+  color: #000;
+  font-size: 12px;
+  background: url(../img/header.png) no-repeat center;
+}
+/* line 331, ../sass/style.scss */
+article.page2 nav p {
+  margin-right: 10px;
+}
+/* line 335, ../sass/style.scss */
+article.page2 nav .folderIcon {
+  width: 18px;
+  height: 13px;
+  margin-right: 10px;
+  background: url(../img/folderIcon.png) no-repeat center;
+}
+/* line 341, ../sass/style.scss */
+article.page2 nav .foldersIcon {
+  width: 18px;
+  height: 13px;
+  margin-right: 10px;
+  background: url(../img/foldersIcon.png) no-repeat center;
+}
+/* line 347, ../sass/style.scss */
+article.page2 nav .headerBar {
+  width: 70px;
+  height: 11px;
+  margin-right: 10px;
+  background: url(../img/headerBar.png) no-repeat center;
+}

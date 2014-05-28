@@ -1,0 +1,117 @@
+<style>
+ .project, .expandedProject
+        {
+            float : left;
+            display: inline-block;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+             
+            margin-right: 30px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            padding: 20px 15px 0;
+            position: relative;
+            background-color: #F7F7F7;
+        }
+
+ 
+.expandedProject
+{
+    width: 300px;
+    height: 300px;
+}
+.test
+{
+margin-right: 30px;
+}
+</style>
+
+        <!-- Basic Styles -->
+       
+<div class="container-fluid">
+    <div></div>
+     <div></div>
+    
+    
+
+    <div class="row">
+         
+        <div class="test col-xs-12  col-sm-1 sortable-grid ui-sortable" ng-repeat="project in projects">
+            <div class="row">
+                <div class="  jarviswidget jarviswidget-color-pink"   data-widget-colorbutton="false" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-custombutton="false"   >
+                    <header>
+                                    <span class="widget-icon"> <i class="fa fa-comments"></i> </span>
+                                       <div class="widget-toolbar">
+                                          <h2> {{project}}</h2>  
+                                        <div class="badge bg-color-blue">
+                                            99
+                                        </div>
+                                    </div> 
+                                                
+                                    
+                                   
+                    </header>
+                     
+                  <!--  <button type="button" class="btn btn-default btn-mini" ng-click="deployProject(project)">
+                        deploy
+                    </button>
+                          <button type="button" class="btn btn-default btn-mini" ng-click="deleteProject(project, $index)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <a ui-sref="ide({projectName:project})">
+                        <button type="button" class="btn btn-default btn-mini">
+                            <span class="glyphicon glyphicon-pencil"></span>Code
+                        </button>
+                    </a>-->
+                    <div class="widget-body">
+                     
+                                            <p>Fresh IDE Project</p>
+                
+                                         
+                                            <div class="progress progress-striped active" rel="tooltip" data-original-title="55%" data-placement="bottom">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" style="width: 55%">55 %</div>
+                                            </div>
+                                            <div class="row">
+                                               <button   class="btn btn-default btn-mini" data-toggle="dropdown"><span class="glyphicon glyphicon-refresh">Deploy</span></button>
+                                           <ul class="dropdown-menu  ">
+                            <li>
+                                 <div class="row"><a ng-click="deployProject(project)" ><img style="margin:10px" width="30px" height="30px" src="img/icon-amazon.png"  > <strong>Amazon</strong></a>
+                            </li>
+                            <li>
+                                <a>Heroku</a>
+                            </li>
+                             
+                        </ul>          
+                                                <a href="/edit/edit.html">
+                                                  <button   class="btn btn-default btn-mini">
+                                                     <span class="glyphicon glyphicon-pencil"></span>Code
+                                                 </button>
+                                               </a>   
+
+                                              <a ui-sref="graphs({})">
+                                                  <button   class="btn btn-default btn-mini">
+                                                     <span class=".glyphicon .glyphicon-eye-open"></span>360
+                                                 </button>
+                                               </a> 
+                                           </div>
+
+
+                                        
+                    </div>
+                     
+                </div>    
+            </div>
+        </div>
+    
+ </div>
+ <div class="row">
+        <button class="col-md-offset-1 col-md-2 btn btn-default" ng-click ="createNewProject()">New Project</button>
+    </div>
+    <br>
+   <div ui-view></div> 
+
+</div>

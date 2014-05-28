@@ -1,0 +1,73 @@
+{
+  "name": "orion",
+  "version": "0.0.30",
+  "description": "An Eclipse Orion server based on Node.js and connect.",
+  "homepage": "http://eclipse.org/orion/",
+  "bugs": "https://bugs.eclipse.org/bugs/enter_bug.cgi?product=Orion&component=Node",
+  "dependencies": {
+    "connect": "~2.4.6",
+    "node-inspector": "~0.2.0-beta3",
+    "socket.io": "~0.9.11",
+    "socket.io-client": "~0.9.11",
+    "deferred-fs": ">=0.1.0",
+    "rimraf": "~2.1.4"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "requirejs": "~2.1.2",
+    "supertest": "*",
+    "grunt": "~0.4.4",
+    "grunt-cli": "~0.1.13",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-requirejs": "~0.4.3",
+    "grunt-string-replace": "~0.2.7",
+    "grunt-simple-mocha": "~0.4.0",
+    "grunt-contrib-clean": "~0.5.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "optimize": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://git.eclipse.org/gitroot/orion/org.eclipse.orion.client.git"
+  },
+  "keywords": [
+    "orion",
+    "eclipse",
+    "ide"
+  ],
+  "author": "Orion contributors",
+  "license": "Eclipse Public License + Eclipse Distribution License",
+  "requirejsExcludeModules": [
+    "authenticationPlugin",
+    "cFDeployService",
+    "cFPlugin",
+    "deploy",
+    "git-commit",
+    "git-log",
+    "git-repository",
+    "git-status",
+    "gitBlamePlugin",
+    "gitPlugin",
+    "GerritFilePlugin",
+    "GitHubFilePlugin",
+    "index",
+    "LoginWindow",
+    "logs",
+    "manageOpenids",
+    "npmPlugin",
+    "preferencesPlugin",
+    "site",
+    "sitePlugin",
+    "sites",
+    "taskPlugin",
+    "user-list",
+    "userservicePlugin",
+    "view"
+  ],
+  "bin": {
+    "orion": "./bin-global/orion.js"
+  }
+}

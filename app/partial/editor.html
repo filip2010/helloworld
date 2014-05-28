@@ -1,0 +1,40 @@
+<div>
+ <style>
+       .CodeMirror {
+        border: 1px solid black; 
+        font-size:13px;
+        height:800px !important;
+        overflow: hidden;
+
+
+      }
+
+      .editor
+      {
+        position:absolute;
+        height:800px;
+        width:100%;
+      }
+     .tabs
+      {
+        border-bottom : 1px solid blue;
+        style=" overflow: hidden;
+      }
+      .splitter 
+      {
+      	 height: 1px;
+      	 width: 100%;
+      	 
+      }
+ </style>
+ {{changeEvent}}
+  <tabset >
+    
+    <tab class="tabs" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" selected="tab.selected" disabled="tab.disabled">
+      {{tab.content}}
+    </tab>
+     
+  </tabset>
+  <div class="splitter"></div>
+  <div   style = "overflow: hidden" id="fresheditor"></div>
+</div>

@@ -1,0 +1,33 @@
+ 
+    <div >
+       
+              <div class="float:left">
+              <div class="project" ng-class="[project.mode]">
+                <h2>{{project.projectName}}</h2>
+                <div class="whiteBar">
+                    <ul class="list-inline pull-left">
+                        <li><span class="leftArrow pull-left"></span></li>
+                        <li><button class="greenTimeBtn pull-left"></button></li>
+                        <li><button class="errorRedBtn pull-left"><h1 style="margin:auto">{{project.errors}}</h1></button></li>
+                        <li><button class="warningYellowBtn pull-left"><h1 style="margin:auto">{{project.warnings}}</h1></button></li>
+                        <li><span class="rightArrow pull-left"></span></li>
+                    </ul>
+                </div>
+                 <ul class="projectIcons list-inline pull-left">
+                    <li><a type="button" class="leafIcon pull-left"   href="/edit/edit.html" </li>
+                    <!--<li><button class="clockIcon pull-left"></button></li>-->
+                    
+                    <!--<li><button class="toggleIcon pull-left"></button></li>-->
+                    <li><a class="toggleIcon pull-left" ng-click="extend()"></a></li>
+                    <li><a class="refreshIcon pull-left" ng-click="refresh()"></a></li>
+                    <li><a class="deleteIcon pull-left" ng-click="deleteProject(project)"></a></li>
+                  <!--  <li class="countLi"><button class="countIcon pull-left" ui-sref="viewProject({'projectName':project.projectName})"></button></li>-->
+                    <li><button class="extendIcon pull-left" ui-sref="viewProject({'projectName':project.projectName})"></button></li>
+                    <li><button class="userPic pull-left"></button></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div><!--end of wrapper div-->
+ 
+ 

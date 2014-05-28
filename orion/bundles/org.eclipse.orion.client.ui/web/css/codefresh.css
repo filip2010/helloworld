@@ -1,0 +1,11 @@
+ 
+
+.freshlogo{
+  
+  float: left;
+  width: 39px;
+  height: 36px;
+  margin-top: -5px;
+  margin-left: -5px;
+  background: url(../images/logoIcon.png) no-repeat center;
+}

@@ -1,0 +1,87 @@
+<div>
+<style>
+ .console
+ {
+  height:400px;
+  border: 1px solid green;
+ }
+.menu
+{
+ 
+   background-color: #f3f3f3;
+}
+ul.ui-dynatree-container
+{
+        font-family: tahoma, arial, helvetica;
+        font-size: 10pt; /* font size should not be too big */
+        white-space: nowrap; /* better to set it by default, imho */
+        padding: 3px;
+        background-color: white; 
+        border: none!important;
+}
+
+ 
+.menu{
+  background-color: #F8F8F8;
+  border-bottom: 1px solid;
+  height:50px;
+  margin : 10px;
+}
+.debugWindow
+{
+	border : 1px solid;
+	background-color: #F8F8F8
+}
+</style>
+ 
+ 
+ 
+<!--  <button class=".btn .btn-small" ng-click="debug.onCollapse()">{{debug.collapseWindow}}</button>
+  
+</div>
+<div ng-show="false" class="debugWindow" collapse="debug.collapse">
+       Angular <button ng-click="createProject(1)">CreateProject</button>
+       Node <button ng-click="createProject(2)">CreateProject</button>
+      
+       <div> {{$id}}
+        fileName : {{fileInfo.title}}
+        filePath : {{fileInfo.path}}
+        all : {{JSON.stringify(fileInfo)}}
+       
+       <p>Active Project</p><strong>{{project.projectName}}</strong>
+       <p>{{project.creationDate}}</p>
+     </div>
+</div>-->
+ 
+
+  <div class="row menu col-md-12">
+ 
+     <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+          <ul class="dropdown-menu" >
+            <li><a ng-click="deploy('local')">Deploy on AWS</a></li>
+            <li><a ng-click="deploy('aws')">Deploy on Heroku</a></li>
+            <li><a ng-click="stopInstance()">Stop instance</a></li>
+            <li><a ng-click="describeInstance()">Describe instance</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+ </div>
+ 
+     <strong> {{JSON.stringify(project)}} </strong>
+<div class="row">
+ 	   <tree   model="model" class="col-md-4"></tree>
+     <editor   class="col-md-8"><editor>
+</div>
+<div class="row col-md-12 console">Console</div>
+ <button ng-click = "clear()">Clear</button>
+ 
+</div>

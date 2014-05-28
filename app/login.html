@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+        <title>fresh</title>
+        
+        <!-- Bootstrap core CSS -->
+       
+     
+
+
+         <!--<link href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen" type="text/css" rel="Stylesheet"> -->
+         <link href=" //netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" media="screen" type="text/css" rel="Stylesheet">
+       <!--  <link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+        <link href="css/smartadmin-production_unminified.css" media="screen" type="text/css" rel="Stylesheet">
+        <link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">-->
+        <!-- FAVICONS -->
+        <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+        <!-- GOOGLE FONT -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+            <link href="styles/app.css" rel="stylesheet">
+        <link rel href="bower_components/jquery-ui/themes/black-tie/query.ui.theme.css">
+        <link rel href="bower_components/jquery-ui/themes/base/jquery.ui.all.css">
+         <link rel href="http://layout.jquery-dev.net/lib/css/layout-default-latest.css"> 
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/start/jquery-ui.css" type="text/css" rel="Stylesheet" class="ui-theme">
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" type="text/css" rel="Stylesheet" class="ui-theme">
+        <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/sunny/jquery-ui.css" type="text/css" rel="Stylesheet" class="ui-theme">
+        <link href="libs/jquery-steps/demo/css/jquery.steps.css" type="text/css" rel="Stylesheet">
+         
+        <!--<link href="http://necolas.github.io/normalize.css/3.0.0/normalize.css" type="text/css">-->
+        <style>
+   
+ 
+
+.loggeduser
+{
+    position:relative; 
+    left: 1550px;
+    
+}
+.createProjectButton
+{
+    margin-top:10px;
+    border-radius:26px;
+    border-width: 0px;
+    background-color: #f3d180;
+    position:relative; 
+    left: 1250px;
+    height:36px;
+    
+}
+        </style>
+
+    
+         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <link href="stylesheets/style.css" rel="stylesheet">  
+   
+
+      
+   
+       
+  
+    </head>
+
+    
+
+
+<body >
+     <header ng-controller="LoginCntrl">
+        <a class="logoIcon"></a>
+        <div class="dropdown ">
+            <a id="dropDownOptions"  data-toggle="dropdown" href="#"><span class="toggleIcon"></span></a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropDownOptions">
+                <li>option1</li>
+                <li>option2</li>
+            </ul>
+        </div>
+        <div ng-show ="authUser">
+            <button class="userPic"></button>
+            <div class="iconsBar">
+                <button class="settings"></button>
+                <button class="errors"></button>
+                <button class="music"></button>
+                <p>{{loggedUser}}</p>
+            </div>
+            <button class="addNewProjectBtn" ng-click = "createProject()">Add New Project</button>
+        </div>
+    </header>
+</body>
+</html>

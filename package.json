@@ -1,0 +1,58 @@
+{
+  "name": "fresh",
+  "version": "0.0.1",
+  "description": "cloud development platform",
+  "dependencies": {
+    "archiver": "~0.6.1",
+    "async": "~0.2.10",
+    "karma": "~0.10.9",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-coffee-preprocessor": "~0.1.3",
+    "karma-firefox-launcher": "~0.1.3",
+    "express": "~3.4.8",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.2",
+    "karma-requirejs": "~0.2.1",
+    "karma-jasmine": "~0.1.5",
+    "karma-script-launcher": "~0.1.0",
+    "karma-mocha": "~0.1.1",
+    "multiparty": "~3.2.3",
+    "requirejs": "~2.1.11",
+    "rimraf": "~2.2.6",
+    "should": "~3.1.2",
+    "supertest": "~0.9.0",
+    "unzip": "~0.1.9",
+    "socket.io": "0.9.16",
+    "underscore": "~1.6.0",
+    "aws-sdk": "^2.0.0-rc13",
+    "bower": "1.3.1",
+    "exec": "~0.1.0",
+    "forever": "~0.10.11",
+    "mkdirp": "~0.3.5",
+    "passport-github": "~0.1.5",
+    "passport": "~0.2.0",
+    "request": "~2.33.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  },
+  "scripts": {
+    "test": "mocha -t 5000 server/tests",
+    "start": "node server.js",
+    "postinstall": "bower install"
+  },
+  "main": "demoserver.js",
+  "repository": {
+    "type": "git",
+    "url": "https://verchol@bitbucket.org/verchol/codefresh.git"
+  },
+  "keywords": [
+    "code",
+    "webide",
+    "cloud",
+    "javascript",
+    "amazon"
+  ],
+  "author": "oleg verhovsky",
+  "license": "BSD-2-Clause"
+}
