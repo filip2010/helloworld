@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "0.10"
+install:
+  - "npm install"
+env:
+  - DEMO_OPTIONS="-t 5000" 
+deploy:
+  provider: heroku
+  api_key: "73008e80-70de-4ee5-98a1-996f224bfd68"
