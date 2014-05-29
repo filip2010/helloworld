@@ -61,7 +61,13 @@ var ProjectRepository = function(){
           errorCallback = function(){throw "[getProjectIssues] error: can't find project " + projectName;}
 
         var project = this.getProject(projectName);
-        var options = {username: 'verchol', password: "oleg1314", repoName: project.gitRepo.repoName};
+        var reponame;
+        if (!project.gitRepo  || !project.gitRepo.repoName)
+          reponame = "undefined";
+        else 
+          reponame = project.gitRepo.repoName;
+
+        var options = {username: 'verchol', password: "oleg1314", repoName:  reponame};
 
         if (!project)
            errorCallback();
