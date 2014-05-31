@@ -53,6 +53,8 @@ argslib.readConfigFile(configFile, function(configParams) {
 		workspaceDir = path.join(__dirname, '.workspace');
 	}
 
+	console.log("workspaceDir = " + workspaceDir);
+
 	argslib.createDirs([workspaceDir], function(dirs) {
 		var passwordFile = args.password || args.pwd;
 		argslib.readPasswordFile(passwordFile, function(password) {
