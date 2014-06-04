@@ -3,9 +3,9 @@ angular.module("fresh").directive('project', function($state, Project) {
             restrict: 'AE',
             scope: {project: "="} ,
             templateUrl: 'views/templates/projectTmpl.html',
-            controller : function($scope)
+            controller : function($scope, $location)
             {
-
+                $scope.ideUrl = $location.protocol() + "://" + $location.host() + ":8081" + "/edit/edit.html"
                 $scope.projectTmpl = 'views/templates/project.html';
 
                 var initProjects = function(data) 
