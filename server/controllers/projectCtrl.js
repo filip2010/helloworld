@@ -80,17 +80,14 @@ function ProjectCtrl(io){
         res.error("internal : projectName was not provided")
     }
     this.createProject = function(req, res){
+        req.params =_.extend(req.params || {}, req.query || {}, req.body || {});
+
         if (req.body.templateId)
         {
             if (!req.user)
                req.user = {username:"itai"};
-
-            templateCtrl.getTemplateNameById(req.body.templateId, function(err, templateName){
-                if (err) throw err;
-                if (templateName){
-                    req.body.templateName = templateName;
-                    createProjectAfterOptionsConfirmed(req, res);
-                    /*
+ 
+              /*
                         this.username       = projectSettings.username;
                         this.templateName   = projectSettings.templateName;
                         this.projectName    = projectSettings.projectName;
@@ -98,28 +95,24 @@ function ProjectCtrl(io){
                         this.lastModifed    = this.creationDate;
                         this.path           = projectSettings.filePath ;
                         this.description =   projectSettings.description;
-                    */
-                    ProjectsRepository.createProject(
+               */
+               ProjectsRepository.createProject(
                         {
                             projectName : req.params.projectName ,
                             description: "node.js project" , 
                             username : req.user.username ,
-                            "templateName" : templateName
+                            "templateId" : req.params.templateId
 
-                        })
-                }
-                else
-                    return res.send(400, 'template id given does not exist');
-            })
-        } else if (req.body.templateName){
-            templateCtrl.getTemplateIdByName(req.body.templateName, function(err, id){
-                if (err) throw err;
-                if (id)
-                    createProjectAfterOptionsConfirmed(req, res);
-                else
-                    return res.send(400, 'template name given does not exists');
-            })
-        }
+               }, function(project)
+                  {
+
+                      res.json(project);
+
+                  });
+         }else
+            return res.send(400, 'template id given does not exist');
+
+
     }
 
     this.deleteProject = function(req, res){

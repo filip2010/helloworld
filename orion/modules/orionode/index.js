@@ -20,7 +20,7 @@ var connect = require('connect'),
 
 var LIBS = path.normalize(path.join(__dirname, 'lib/')),
     NODE_MODULES = path.normalize(path.join(__dirname, 'node_modules/')),
-    ORION_CLIENT = path.normalize(path.join(__dirname, '../../'));
+    ORION_CLIENT = path.normalize(path.join(__dirname, './lib/orion.client/'));
 
 function handleError(err) {
 	throw err;
@@ -33,7 +33,7 @@ function startServer(options) {
 	try {
 		var appContext = new AppContext({fileRoot: '/file', workspaceDir: workspaceDir, configParams: configParams});
 
-		var app = connect()
+        var app = connect()
 			// static code
 			.use(orionNodeStatic(path.normalize(path.join(LIBS, 'orionode.client/')), {
 				socketIORoot: path.resolve(NODE_MODULES, 'socket.io-client/')

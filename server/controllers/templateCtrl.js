@@ -4,8 +4,41 @@ var   fs =                require('fs')
       , rimraf =          require('rimraf')
       , path =            require('path')
       , unzip =           require('unzip')
-      , path =            require('path');
+      , path =            require('path')
+      ,  _     =            require('underscore');
 
+
+//internal functions
+var metadata = [];
+var createAllTemplatesMetadata = function(callback, templatePath){
+
+    if (metadata.length > 0) return metadata;
+    console.log("[createAllTemplatesMetadata] - templates path is " + templatePath);
+
+    if (!templatePath)
+        templatePath = './server/templates';
+    var dirs = fs.readdirSync(templatePath);
+        if (!dirs.length)
+            throw "can't read metadata , dirs = "  + JSON.stringify(dirs);
+
+      dirs.forEach(function(dir){
+                var config = fs.readFileSync(path.join( templatePath, dir, 'config.txt'));
+
+                    metadata.push(JSON.parse(config));
+
+                });
+
+             metadata = _.sortBy(metadata,
+                    function(config){
+                         return config.id;
+                    });
+  return metadata;
+}
+createAllTemplatesMetadata(function(err){
+    if (err)
+        throw "can't load templates metadata, error: " + JSON.stringify(err);
+
+});
 
 var getTemplateFilesByName = function(req, res){
   getTemplateIdByName(req.params.name, function(err, result){
@@ -80,38 +113,12 @@ exports.getTemplateMetadataByName = getTemplateMetadataByName;
 
 
 
-//internal functions
-var createAllTemplatesMetadata = function(callback){
-  var metadata = [];
-  fs.readdir('./server/templates/', function(err, dirs){
-    if (err)
-      return callback(err, null);
-    async.each(dirs, function(dir, continuation){
-      fs.readFile(path.join('./server/templates', dir, 'config.txt'), function(err, config){
-        if (err)
-          return callback(err, null);
-        metadata.push(JSON.parse(config));
-        continuation(err);
-      });
-      },
-      function(err){
-        if (err)
-          return callback(err, null);
-        async.sortBy(metadata, 
-        function(config, continuation){
-          continuation(err, config.id);
-        },
-        function(err, results){
-          return callback(null, results);
-        });
-      });
-  });
-}
 
 var getTemplateIdByName = function(name, callback){
   createAllTemplatesMetadata(function(err, templateList){
     if (err)
       return callback(err, null);
+    //console.log(templateList);
     //console.log(templateList);
     for (var i=0; i<templateList.length; i++){
       if (templateList[i].name == name)
@@ -122,14 +129,9 @@ var getTemplateIdByName = function(name, callback){
 }
 
 var getTemplateNameById = function(id, callback){
-  createAllTemplatesMetadata(function(err, templateList){
-    if (err) 
-      return callback(err, null);
-    if (id > templateList.length)
-      return callback(null, null);   
-    else 
-      return callback(null, templateList[id-1].name);
-  });
+     var meta = createAllTemplatesMetadata();
+     return  meta[id-1].name;
+
 }
 
 

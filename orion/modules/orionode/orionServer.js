@@ -42,8 +42,9 @@ argslib.readConfigFile(configFile, function(configParams) {
 
 	var workspaceArg = args.workspace || args.w;
 	var workspaceConfigParam = configParams.workspace;
+	 
 	var workspaceDir;
-	if (workspaceArg) {
+	if (workspaceArg) { 
 		// -workspace passed in command line is relative to cwd
 		workspaceDir = path.resolve(process.cwd(), workspaceArg);
 	} else if (workspaceConfigParam) {
@@ -53,9 +54,8 @@ argslib.readConfigFile(configFile, function(configParams) {
 		workspaceDir = path.join(__dirname, '.workspace');
 	}
 
-	console.log("workspaceDir = " + workspaceDir);
-
-	argslib.createDirs([workspaceDir], function(dirs) {
+     console.log("loading the workspace from " + workspaceDir)
+	 argslib.createDirs([workspaceDir], function(dirs) {
 		var passwordFile = args.password || args.pwd;
 		argslib.readPasswordFile(passwordFile, function(password) {
 			var dev = Object.prototype.hasOwnProperty.call(args, 'dev');
@@ -75,18 +75,19 @@ argslib.readConfigFile(configFile, function(configParams) {
 				configParams: configParams,
 				maxAge: (dev ? 0 : undefined),
 			}), appContext = orionMiddleware.appContext;
-			app.use(log ? connect.logger('tiny') : noop)
+			var server = connect()
+				.use(log ? connect.logger('tiny') : noop)
 				.use(auth(password || configParams.pwd))
 				.use(connect.compress())
-				.use(orionMiddleware);
-				//.listen(port);
+				.use(orionMiddleware)
+				.listen(port);
 
 			// add socketIO and app support
-			/*var io = socketio.listen(server, { 'log level': 1 });
+			var io = socketio.listen(server, { 'log level': 1 });
 			appSocket.install({ io: io, appContext: appContext });
 			server.on('error', function(err) {
 				console.log(err);
-			});*/
+			});
 		});
 	});
 });
