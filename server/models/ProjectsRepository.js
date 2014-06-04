@@ -22,25 +22,36 @@ var ProjectRepository = function(){
         configPath = config.path;
    }
 
-   this.createProject = function (projectSettings, callback)
+   this.createProject = function (projectSettings, createProjectCallback)
    {
-     var project = new Project(projectSettings);
+    
      var key = projectSettings.username + projectSettings.projectName;
      console.log("project save wtih key " +  key);
 
-     projects.push(project);
     
-         
-     createGitRepostiory(project);
+ 
 
      async.series({
-          createProject: function(callback){
+          createProject : function(callback)
+          {
+             console.log("creating project ...");
+             Project.createProject(projectSettings, function(project)
+             {
+                  console.log(JSON.stringify(projectSettings));
+                  projects.push(project);
+                  createProjectCallback(null, project);
+                  callback(null, project);
+             });
+              
+          },
+          createGit: function(project , callback){
              createGitRepostiory(project, function()
-              { 
-                callback(null, project.gitRepo)
+              {
+                console.log("git repo was created : " + project.gitRepo);
+                callback(null, project);
               });
           },
-          getIssues: function(callback){
+          getIssues: function(project , callback){
              getProjectIssues(project, function(){
               callback(null, project.issues);
           })

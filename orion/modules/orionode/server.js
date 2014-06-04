@@ -63,18 +63,29 @@ argslib.readConfigFile(configFile, function(configParams) {
 			console.log(util.format('Using workspace: %s', workspaceDir));
 			console.log(util.format('Listening on port %d...', port));
 
+  			console.log("server1 init");
+		 
+
+            console.log("directories " + dirs[0]);
+
+
 			// create web server
 			var orionMiddleware = orion({
 				workspaceDir: dirs[0],
 				configParams: configParams,
-				maxAge: (dev ? 0 : undefined),
+				maxAge: (dev ? 0 : undefined)
 			}), appContext = orionMiddleware.appContext;
-			var server = connect()
-				.use(log ? connect.logger('tiny') : noop)
-				.use(auth(password || configParams.pwd))
-				.use(connect.compress())
-				.use(orionMiddleware)
-				.listen(port);
+
+            var server = connect()
+                .use(log ? connect.logger() : noop)
+                .use(auth(password || configParams.pwd))
+                .use(connect.compress())
+                .use(orionMiddleware)
+                .listen(port).use(function(err, req, res, next){
+                    //return error default
+                    console.log("Default Error:" + err);
+                    return res.send(500);
+                });
 
 			// add socketIO and app support
 			var io = socketio.listen(server, { 'log level': 1 });
