@@ -1,1 +1,0 @@
-{"id":2,"name":"demo-template","icon":"demo-template/icon.jpg","files":"","handler":"./handler.js"}

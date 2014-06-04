@@ -1,1 +1,0 @@
-{"id":2,"name":"node.js","icon":"node.js/icon.jpg","files":"","handler":"./handler.js"}

@@ -1,1 +1,0 @@
-//implement events to occur on this template

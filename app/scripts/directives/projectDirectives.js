@@ -5,7 +5,7 @@ angular.module("fresh").directive('project', function($state, Project) {
             templateUrl: 'views/templates/projectTmpl.html',
             controller : function($scope, $location)
             {
-                $scope.ideUrl = $location.protocol() + "://" + $location.host() + ":8081" + "/edit/edit.html"
+                $scope.ideUrl = $location.protocol() + "://" + $location.host() + ":8001" + "/edit/edit.html"
                 $scope.projectTmpl = 'views/templates/project.html';
 
                 var initProjects = function(data) 
