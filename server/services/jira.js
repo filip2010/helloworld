@@ -55,7 +55,7 @@ var getIssues = function(params, callback){
 
 
     var maxResults = 50;
-    var fields = 'summary,status';
+    var fields = 'summary,status,issuetype';
 
     if (!params.status)
         var searchString = 'search?jql= project="' + params.projectName +'"&maxResults=' + maxResults + '&fields=' + fields;
@@ -73,6 +73,8 @@ var getIssues = function(params, callback){
         }
         , function(err, resp, body){
             //console.log(body);
+            //console.log(resp);
+            //console.log(err);
             if (err)
                 return callback(err, null);
             else if (resp.statusCode >= 400)

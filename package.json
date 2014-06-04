@@ -38,7 +38,8 @@
     "karma-requirejs": "~0.2.1",
     "karma-jasmine": "~0.1.5",
     "karma-script-launcher": "~0.1.0",
-    "karma-mocha": "~0.1.1"
+    "karma-mocha": "~0.1.1",
+    "cors": ""
   },
   "scripts": {
     "start": "node server.js",

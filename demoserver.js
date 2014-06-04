@@ -4,6 +4,7 @@ var express =           require('express')
     , ioSocket =        require('socket.io')
     , passport =        require('passport')
     , httpProxy =       require('http-proxy')
+    , cors =                require('cors')
     , orionInit =           require('./orion/modules/orionode/orionServer');
 
  
@@ -55,6 +56,7 @@ app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'app')));
 app.use(express.static(path.join(__dirname, 'demoserver/templates')));
 app.use( express.cookieParser() );
+app.use( cors() );
 app.use(express.session({secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
