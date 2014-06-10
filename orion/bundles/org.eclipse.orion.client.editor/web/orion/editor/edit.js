@@ -11,7 +11,7 @@
  *******************************************************************************/
  
 /*globals define Node */
-
+/*oleg*/
 define('orion/editor/edit', [ //$NON-NLS-0$
 	"require", //$NON-NLS-0$
 

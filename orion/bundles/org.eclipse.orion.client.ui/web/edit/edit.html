@@ -19,20 +19,24 @@
 				}
 			});
 			require(["edit/edit"]);
+			require(["edit/jira"]);
 		</script>
     </head>
 
 	<body id="orion-editor" spellcheck="false" class="orionPage">
 		<!-- file input doesn't function properly on all web browsers if it is dynamically generated, we don't want the input to be visible -->
 		<input id="fileSelectorInput" type="file" multiple style="position:fixed; top: -100px;"/>
-		<div id="sideMenu" class="sideMenu"></div>
+		<div id="sideMenu" class="sideMenu"><div id="jiraButton"><div class="sideMenuItem" ><image height="40px" width="40px" src="../images/jira.jpg"></image></div></div>
+	</div>
 		<div id="pageContent" class="content-fixedHeight">
+
 			<div id="sideMenuToggle" class="sideMenuToggle"></div>
 			<div id="pageToolbar" class="mainToolbar toolComposite toolbarLayout"></div>
 			<div id="innerPanels" style="position:absolute;width:100%;top:36px;bottom:0;">
 				<div id="auxpane" class="auxpane sidePanelLayout hasSplit">
 					<div class="fixedToolbarHolder">
 						<div id="sidebarToolbar" class="sidebarToolbar mainToolbar toolComposite toolbarLayout"></div>
+					    <div id="jira" class="workingTarget"  style="z-index:200"><iframe style="z-index:200;width:300px;height:100%;border:solid 1px green" src="http://jiradefects.herokuapp.com/"></iframe></div>
 						<div id="sidebar" class="dropdownTrigger toolbarTarget"></div>
 					</div>
 				</div>

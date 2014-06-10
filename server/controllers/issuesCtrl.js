@@ -21,12 +21,14 @@ function issuesCtrl(app)
 
     this.getJiraProjects = function(req, res){
         req.params =_.extend(req.params || {}, req.query || {}, req.body || {});
-        jira.getProjects(req.params, function(err, issues){
+        var request = jira.getProjects(req.params, function(err, issues){
             if (err)
                 return res.send(400, err.body);
             else
                 return res.send(200, issues);
         })
+
+        return request;
     }
 
     this.getJiraIssues = function(req, res){

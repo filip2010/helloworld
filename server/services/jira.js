@@ -3,7 +3,9 @@ var request =   require('request'),
 
 
 var createHostUrl = function(accountName) {
-    return 'https://' + accountName + '.atlassian.net/rest/api/2/'
+    var testUrl = "https://792th5pxvvdc.runscope.net/?Runscope-Playback-Id=cf4d0e1b-fde6-40cb-8053-e537c3065802";
+    //return testUrl;
+    return 'https://codefresh.atlassian.net/rest/api/2/'
 }
 
 /**
@@ -24,10 +26,11 @@ var getProjects = function(params, callback){
             'auth': {
                 'user': params.username,
                 'pass': params.password,
-                'sendImmediately': true
+                'sendImmediately': false
             }
         }
         , function(err, resp, body){
+            console.log(err);
             if (err)
                 return callback(err, null);
             else if (resp.statusCode >= 400)
@@ -36,6 +39,8 @@ var getProjects = function(params, callback){
                 return callback(null, JSON.parse(body));
         }
     );
+
+    return request;
 }
 
 /**
