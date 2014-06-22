@@ -1,1 +1,10 @@
-[{"username":"itai","templateName":"demo-template","projectName":"testproject_1_6_37","creatonDate":"2014-06-01T00:06:41.129Z","description":"node.js project","notifications":0,"gitRepo":{"clone":"https://verchol@bitbucket.org/verchol/testproject_1_6_37.git","html":"https://bitbucket.org/verchol/testproject_1_6_37","repoPath":"verchol/testproject_1_6_37.git","repoName":"testproject_1_6_37"}},{"username":"itai","templateName":"node.js","projectName":"aaaa","creatonDate":"2014-06-01T00:15:05.400Z","description":"node.js project","notifications":0,"gitRepo":{"clone":"https://verchol@bitbucket.org/verchol/aaaa.git","html":"https://bitbucket.org/verchol/aaaa","repoPath":"verchol/aaaa.git","repoName":"aaaa"}}]
+[
+{"username":"itai","templateName":"demo-template",
+"projectName":"freshsite"
+},
+{"username":"itai","templateName":"demo-template",
+"projectName":"testproject_1_6_37",
+"creatonDate":"2014-06-01T00:06:41.129Z",
+"description":"node.js project",
+"notifications":0,
+"gitRepo":{"clone":"https://verchol@bitbucket.org/verchol/testproject_1_6_37.git","html":"https://bitbucket.org/verchol/testproject_1_6_37","repoPath":"verchol/testproject_1_6_37.git","repoName":"testproject_1_6_37"}},{"username":"itai","templateName":"node.js","projectName":"aaaa","creatonDate":"2014-06-01T00:15:05.400Z","description":"node.js project","notifications":0,"gitRepo":{"clone":"https://verchol@bitbucket.org/verchol/aaaa.git","html":"https://bitbucket.org/verchol/aaaa","repoPath":"verchol/aaaa.git","repoName":"aaaa"}}]
