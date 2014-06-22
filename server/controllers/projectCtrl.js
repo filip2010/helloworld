@@ -13,7 +13,8 @@ var templateCtrl =          require('./templateCtrl.js')
     , DeleteProject =       require('../services/deleteProject.js')
     , _=                    require("underscore")
     , exec =                require('child_process').exec
-    , AWSDeploy =           require('../services/awsDeploy.js');
+    , AWSDeploy =           require('../services/awsDeploy.js')
+    
 
 
 
@@ -223,7 +224,8 @@ function ProjectCtrl(io){
     }
 
     this.deploy = function(req, res){
-        var projectSettings = {templateName: req.body.templateName, projectName: req.body.projectName};
+        req.params =_.extend(req.params || {}, req.query || {}, req.body || {});
+        var projectSettings = {templateName: req.params.templateName, projectName: req.params.projectName};
         if (!req.body.username)
             projectSettings.username = "itai";
         var project =  ProjectsRepository.getProject(projectSettings.projectName);
@@ -231,7 +233,8 @@ function ProjectCtrl(io){
         if (req.body.provider == 'aws')
             amazonDeployment(project, req, res);
         else // local deplyoment
-            localDeployment(project, req, res);
+            herokuDeployment(project, req, res);
+           // localDeployment(project, req, res);
     }
 
     this.stopInstance = function(req, res){
@@ -426,10 +429,39 @@ function ProjectCtrl(io){
             });
         });
     }
+    var herokuDeployment = function(project, req, res)
+    {
+        console.log(JSON.stringify(project));
+        console.log(project.username.toString());
+        console.log(project.projectName.toString());
+        herokuDeploy =        require('../services/herokuDeployment.js');
 
+        var execPath = path.join('./server/users', 
+            project.username , 
+            'projects', project.projectName );
+        execPath = path.resolve(execPath);
+        console.log("path:" + execPath);
+
+        if (!project.herokuApp)
+            herokuApp = "freshsite";
+
+         herokuDeploy(execPath , herokuApp , function(err, data)
+                {
+                    console.log("in callback");
+                    if (err)
+                        console.log("error:" + err);
+                    else { 
+                        console.log("[log start]" + data);
+                        console.log("[log end]");
+                    }
+
+                })
+
+    }
     var localDeployment = function(project, req, res){
         var randomPort = Math.floor((Math.random()*4000)+3000);
-        var execPath = path.resolve('server/users', project.username, 'projects', project.projectName);
+        var execPath = path.resolve('server/users', project.username, 'projects', 
+            project.projectName);
         var serverIp;
         var attemps = 0;
 
