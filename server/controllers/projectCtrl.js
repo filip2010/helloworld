@@ -457,6 +457,8 @@ function ProjectCtrl(io){
 
                 })
 
+        res.send("OK");
+
     }
     var localDeployment = function(project, req, res){
         var randomPort = Math.floor((Math.random()*4000)+3000);
