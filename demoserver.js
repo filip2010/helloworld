@@ -78,6 +78,7 @@ var server = http.createServer(app);
  server.listen(app.get('port'), function(){
     var io = ioSocket.listen(server);
     io.set('log level', 1);
+    io.emit("test", {"test" : "oleg"});
     require('./server/routes.js')(app, io);
     console.log("Express server listening on port " + app.get('port'));
     console.log("start date is " + new Date());

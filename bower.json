@@ -13,18 +13,20 @@
     "test",
     "tests"
   ],
+  "devDependencies": {
+    "angular-mocks": "1.2.16",
+    "angular-scenario": "1.2.16"
+  },
   "dependencies": {
     "angular-bootstrap": "~0.10.0",
     "angular": "~1.2.14",
     "angular-cookies": "~1.2.14",
-    "angular-mocks": "~1.2.14",
     "angular-ui-router": "~0.2.9",
     "angular-resource": "~1.2.14",
     "bootstrap": "~3.1.1",
     "socket.io-client": "~0.9.16",
     "angular-sanitize": "~1.2.14",
     "jQuery-contextMenu": "~1.6.5",
-    "angular-scenario": "~1.2.16",
     "angular-ui": "~0.4.0",
     "es5-shim": "~3.0.1",
     "jquery-ui": "~1.10.4",

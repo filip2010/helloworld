@@ -69,6 +69,7 @@ var exports = {};
 		this.editActionsScope = "editActions"; //$NON-NLS-0$
 		this.viewActionsScope = "viewActions"; //$NON-NLS-0$
 		this.toolsActionsScope = "toolsActions"; //$NON-NLS-0$
+		this.deployActionsScope= "deployActions";
 		this.additionalActionsScope = "extraActions"; //$NON-NLS-0$
 		this.createActionSections();
 	}
@@ -101,6 +102,7 @@ var exports = {};
 			commandRegistry.addCommandGroup(editActionsScope, "orion.menuBarEditGroup", 100, messages["Edit"], null, messages["noActions"], null, null, "dropdownSelection"); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-0$
 			commandRegistry.addCommandGroup(viewActionsScope, "orion.menuBarViewGroup", 100, messages["View"], null, messages["noActions"], null, null, "dropdownSelection"); //$NON-NLS-1$ //$NON-NLS-0$	
 			commandRegistry.addCommandGroup(toolsActionsScope, "orion.menuBarToolsGroup", 100, messages["Tools"], null, null, null, null, "dropdownSelection"); //$NON-NLS-1$ //$NON-NLS-0$
+			commandRegistry.addCommandGroup(toolsActionsScope, "orion.menuBarDeployGroup", 100, messages["Deploy"], null, null, null, null, "dropdownSelection"); //$NON-NLS-1$ //$NON-NLS-0$
 			
 			commandRegistry.addCommandGroup(fileActionsScope, "orion.newContentGroup", 0, messages["New"], "orion.menuBarFileGroup", null, null, null, "dropdownSelection"); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-0$
 			commandRegistry.addCommandGroup(fileActionsScope, "orion.importGroup", 100, messages["Import"], "orion.menuBarFileGroup", null, null, null, "dropdownSelection"); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-0$

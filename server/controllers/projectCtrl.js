@@ -23,6 +23,7 @@ function ProjectCtrl(io){
     var initializeProject = new InitializeProject(io); 
     var deployment =        new Deployment(io); 
     var deleteProject =     new DeleteProject(io); 
+    var socketIO  = io;
 
     
     this.getProjectFiles = function(req, res){
@@ -232,9 +233,10 @@ function ProjectCtrl(io){
 
         if (req.body.provider == 'aws')
             amazonDeployment(project, req, res);
-        else // local deplyoment
+        else (req.params.provider == 'heroku')
             herokuDeployment(project, req, res);
-           // localDeployment(project, req, res);
+        else 
+           localDeployment(project, req, res);
     }
 
     this.stopInstance = function(req, res){
@@ -455,9 +457,14 @@ function ProjectCtrl(io){
                         console.log("[log end]");
                     }
 
-                })
+                    socketIO.sockets.emit("deployEvent", {"data" : data});
 
-        res.send("OK");
+                }, function()
+                {
+                res.send("OK");
+                });
+
+         
 
     }
     var localDeployment = function(project, req, res){
@@ -514,8 +521,8 @@ function ProjectCtrl(io){
 
                         }
                         else{
-                            process.env.serverIp = "54.72.92.150";
-                            return res.send(200, "http://54.72.92.150:" + randomPort);
+                            process.env.serverIp = "54.85.80.61";
+                            return res.send(200, "http://54.85.80.61:" + randomPort);
                             console.log(stdout);
                         }
                     })

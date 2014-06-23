@@ -965,7 +965,18 @@ define(['i18n!orion/navigate/nls/messages', 'require', 'orion/webui/littlelib', 
 			visibleWhen: checkFolderSelection
 		});
 		commandService.addCommand(importZipURLCommand);
-		
+		var deployProjectCommand = new mCommands.Command({
+			name: "Deploy",
+			imageClass: "core-sprite-new_folder", //$NON-NLS-0$
+			tooltip: "DeployToStagin",
+			description: messages["Create an empty folder on the Orion server.  You can import, upload, or create content in the editor."],
+			id: "orion.deploy.project", //$NON-NLS-0$
+			callback: function(data) {
+				 alert("Deploy");
+			},
+			visibleWhen: canCreateProject
+		});
+		commandService.addCommand(deployProjectCommand);
 		var newProjectCommand = new mCommands.Command({
 			name: messages["New Folder"],
 			imageClass: "core-sprite-new_folder", //$NON-NLS-0$
