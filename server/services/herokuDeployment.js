@@ -24,22 +24,23 @@ require('shelljs/global');
 
  
 
- function deploy(path, herokuApp , stream, callback, endCallback)
+ function deploy(path, herokuApp , io, callback, endCallback)
  {
   console.log("in heroku deployment");
    var gitPath;
   if(herokuApp){
    	  gitPath = 'git@heroku.com:' + herokuApp + '.git';
-      stream.write(gitPath);
+       callback.call(null, gitPath)
+       io.emit("deployEvent", {"data" : "git path is " +  gitPath});
    	}
    	else {
-   	  stream.write("app is missing");
+   	  io.emit("heroku app is missing");
    	  callback.call(null, "app is missing");
    	}
 
  if (!which('git')) {
-  stream.write('Sorry, this script requires git');
-  callback.call(null, "git is not installed");
+     io.emit("deployEvent", {"data" : "git is not installed"});
+    callback.call(null, "git is not installed");
  }
  
  console.log("set up staging");
@@ -49,7 +50,7 @@ require('shelljs/global');
 rm('-rf', path + "/.git/config");
 console.log("git initialization ...")
 if (exec('git init').code !== 0) {
-    stream.write("git init failed");
+    io.emit("deployEvent", {"data" : 'Error: Git commit failed'});
     callback.call(null, 'Error: Git commit failed');
 }
 
@@ -57,15 +58,18 @@ if (exec('git init').code !== 0) {
 
 if (exec('git remote add heroku ' + gitPath).code !== 0) {
    callback.call(null, 'Error: cant add git remote');
+    io.emit("deployEvent", {"data" : 'Error: cant add git remote'});
 }
 console.log ("git add .");
 if (exec('git add .').code !== 0) {
   echo('Error: Git add failed');
+   io.emit("deployEvent", {"data" : 'Error: Git add failed'});
   callback.call(null, 'Error: Git add failed');
 }
 
 console.log("committing...");
 if (exec('git commit -m "Auto-commit"').code !== 0) {
+   io.emit("deployEvent", {"data" : 'Error: Git commit failed'});
   callback.call(null, 'Error: Git commit failed');
   
 }
@@ -74,6 +78,7 @@ if (exec('git commit -m "Auto-commit"').code !== 0) {
 console.log("sync with remote git");
  if (exec('git pull heroku master').code !== 0) {
   echo('Error: Git add failed');
+   io.emit("deployEvent", {"data" : 'Error: Git add failed'});
  
 }
    
@@ -86,36 +91,33 @@ console.log("sync with remote git");
 
  */
  var output = exec('git push heroku master', {async:true});
- output.stderr.pipe(stream);
- output.stdout.pipe(stream);
- stream.on("data", function(data)
+ 
+ output.stderr.on("data", function(data)
  {
     console.log("added data:" + data);
-    console.log("----------------");
+    io.emit("deployEvent", {"data" :data});
  })
  output.stdout.on("data",function(data)
  
  {
    console.log("===" + data +  "===")
+   io.emit("deployEvent", {"data" :data});
  	  callback.call(null, null, data);
  });
 
-  output.stderr.on("data",function(data)
  
- {
-   console.log("===" + data +  "===")
-    callback.call(null, null, data);
- });
 
 
 output.stderr.on("finish", function(){
-    stream.end();
+   
+     io.emit("deployEvent", {"data" : "deployment finished"});
     callback.call(null, null, "finished");
 
  })
  output.stdout.on("finish", function(){
-    stream.end();
+ 
     callback.call(null, null, "finished");
+    io.emit("deployEvent", {"data" : "deployment finished"});
     endCallback.call(null, null);
 
  })

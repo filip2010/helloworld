@@ -31,7 +31,7 @@ module.exports = function (app, io) {
    // app.post('/project/uploadFiles', projectCtrl.uploadFile); //file by file 
 
 
-    app.post('/projects/:projectName/deploy', projectCtrl.deploy);
+    app.post('/projects/:projectName/deploy/:provider', projectCtrl.deploy);
     app.get('/projects/:projectName/stopInstance', projectCtrl.stopInstance);
     app.get('/projects/:projectName/describeInstance', projectCtrl.describeInstances);
 

@@ -233,7 +233,7 @@ function ProjectCtrl(io){
 
         if (req.body.provider == 'aws')
             amazonDeployment(project, req, res);
-        else (req.params.provider == 'heroku')
+        if (req.params.provider == 'heroku')
             herokuDeployment(project, req, res);
         else 
            localDeployment(project, req, res);
@@ -433,6 +433,23 @@ function ProjectCtrl(io){
     }
     var herokuDeployment = function(project, req, res)
     {
+        function dummyDeploy(){ 
+        var counter = 0;
+        var timer = setInterval(function(){
+           counter++;
+           if (counter>100){
+               clearInterval(timer);
+
+           }
+           console.log("deploying to heroku ... " + counter + " sec");
+         
+          socketIO.sockets.emit("deployEvent", {"data" : "time elapsed " + counter});
+            
+        }, 1000);
+
+        res.send("heroku deploy started");
+       }
+
         console.log(JSON.stringify(project));
         console.log(project.username.toString());
         console.log(project.projectName.toString());
@@ -447,7 +464,7 @@ function ProjectCtrl(io){
         if (!project.herokuApp)
             herokuApp = "freshsite";
 
-         herokuDeploy(execPath , herokuApp , function(err, data)
+         herokuDeploy(execPath , herokuApp , socketIO, function(err, data)
                 {
                     console.log("in callback");
                     if (err)
@@ -459,12 +476,12 @@ function ProjectCtrl(io){
 
                     socketIO.sockets.emit("deployEvent", {"data" : data});
 
-                }, function()
+                }, function() 
                 {
-                res.send("OK");
+                 
                 });
 
-         
+     res.send("OK");    
 
     }
     var localDeployment = function(project, req, res){
