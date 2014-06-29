@@ -474,7 +474,7 @@ function ProjectCtrl(io){
                         console.log("[log end]");
                     }
 
-                    socketIO.sockets.emit("deployEvent", {"data" : data});
+                    //socketIO.sockets.emit("deployEvent", {"data" : data});
 
                 }, function() 
                 {
